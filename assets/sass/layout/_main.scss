@@ -1,5 +1,5 @@
 ///
-/// Lens by HTML5 UP
+/// Stellar by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -7,112 +7,93 @@
 /* Main */
 
 	#main {
-		@include vendor('transition', ('opacity #{_duration(layout)} ease', 'right #{_duration(layout)} ease', 'left #{_duration(layout)} ease', 'visibility #{_duration(layout)}'));
-		-webkit-overflow-scrolling: touch;
-		position: fixed;
-		top: 0;
-		width: _size(main);
-		height: 100%;
-		background: _palette(bg);
-		outline: 0;
-		overflow-x: hidden;
-		overflow-y: auto;
-		text-align: _misc(main-align);
-		visibility: visible;
-		z-index: _misc(z-index-base);
+		@include color(invert);
+		border-radius: _size(border-radius-main);
 
-		@if _misc(main-side) == 'left' {
-			left: 0;
-		}
-		@else {
-			right: 0;
-		}
+		> .main {
+			@include padding(5em, 5em);
+			border-top: solid 1px _palette(invert, border);
 
-		.toggle {
-			-webkit-tap-highlight-color: rgba(0,0,0,0);
-			position: absolute;
-			top: 0;
-			width: 4em;
-			height: 4em;
-			background-image: url('images/close-small-alt.svg');
-			background-repeat: no-repeat;
-			background-size: 32px 32px;
-			cursor: pointer;
-			display: none;
-			z-index: 1;
-
-			@if _misc(main-side) == 'left' {
-				background-position: calc(100% - 0.5em) 0.5em;
-				right: 0;
+			&:first-child {
+				border-top: 0;
 			}
-			@else {
-				background-position: 0.5em 0.5em;
-				left: 0;
-			}
-		}
 
-		body.fullscreen & {
-			visibility: hidden;
+			> .image.main:first-child {
+				margin: -5em 0 5em -5em;
+				width: calc(100% + 10em);
+				border-top-right-radius: _size(border-radius-main);
+				border-top-left-radius: _size(border-radius-main);
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 0;
 
-			@if _misc(main-side) == 'left' {
-				left: (_size(main) * -1);
-			}
-			@else {
-				right: (_size(main) * -1);
-			}
-		}
-
-		body.is-preload-1 & {
-			opacity: 0;
-
-			@if _misc(main-side) == 'left' {
-				left: -2em;
-			}
-			@else {
-				right: -2em;
+				img {
+					border-top-right-radius: _size(border-radius-main);
+					border-top-left-radius: _size(border-radius-main);
+					border-bottom-right-radius: 0;
+					border-bottom-left-radius: 0;
+				}
 			}
 		}
 
 		@include breakpoint('<=large') {
-			width: _size(main-alt);
+			> .main {
+				@include padding(4em, 4em);
 
-			body.fullscreen & {
-				@if _misc(main-side) == 'left' {
-					left: (_size(main-alt) * -1);
-				}
-				@else {
-					right: (_size(main-alt) * -1);
+				> .image.main:first-child {
+					margin: -4em 0 4em -4em;
+					width: calc(100% + 8em);
 				}
 			}
 		}
 
 		@include breakpoint('<=medium') {
-			background: transparentize(_palette(bg), 0.075);
+			> .main {
+				@include padding(4em, 3em);
 
-			.toggle {
-				display: block;
+				> .image.main:first-child {
+					margin: -4em 0 4em -3em;
+					width: calc(100% + 6em);
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			> .main {
+				@include padding(3em, 2em);
+
+				> .image.main:first-child {
+					margin: -3em 0 2em -2em;
+					width: calc(100% + 4em);
+				}
 			}
 		}
 
 		@include breakpoint('<=xsmall') {
-			@include vendor('transition', ('opacity #{_duration(layout-alt)} ease', 'visibility #{_duration(layout-alt)}'));
-			width: 100%;
-			background: _palette(bg);
-			text-align: center;
+			> .main {
+				@include padding(3em, 1.5em);
 
-			body.is-preload-1 & {
-				left: auto !important;
-				right: auto !important;
+				> .image.main:first-child {
+					margin: -3em 0 1.5em -1.5em;
+					width: calc(100% + 3em);
+				}
 			}
+		}
 
-			body.fullscreen & {
-				left: auto !important;
-				right: auto !important;
-				opacity: 0;
-			}
+		@include breakpoint('<=xxsmall') {
+			border-radius: 0;
 
-			.toggle {
-				display: none;
+			> .main {
+				@include padding(2.5em, 1em);
+
+				> .image.main:first-child {
+					margin: -2.5em 0 1.5em -1em;
+					width: calc(100% + 2em);
+					border-radius: 0;
+
+					img {
+						border-radius: 0;
+					}
+				}
 			}
 		}
 	}
