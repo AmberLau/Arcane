@@ -1,0 +1,13 @@
+# Site settings
+name: LauYick
+email: yi.tom.liu@gmail.com
+url: url
+description: "小鶸的个人吐槽"
+author: "LauYick"
+title: "理想国"
+permalink: pretty
+baseurl: /Arcane
+
+# social
+github:
+  username: AmberLau
